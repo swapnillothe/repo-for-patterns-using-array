@@ -54,18 +54,6 @@ const createEmptyRect = function(width,height){
   return requiredRectangle;
 }
 
-const main = function() {
-  let typeOfRectangle = process.argv[2];
-  let width = +process.argv[3];
-  let height = +process.argv[4];
-  if(typeOfRectangle==="filled"){
-    console.log(createFilledRect(width,height));
-  }
-  if(typeOfRectangle==="empty"){
-    console.log(createEmptyRect(width,height));
-  }
-  if(typeOfRectangle==="alternating"){
-    console.log(createAlternateRect(width,height));
-  }
-}
-main();
+exports.createFilledRect = createFilledRect;
+exports.createEmptyRect = createEmptyRect;
+exports.createAlternateRect = createAlternateRect;

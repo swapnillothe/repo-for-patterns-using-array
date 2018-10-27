@@ -1,6 +1,6 @@
 #! /bin/bash
 
-./run_test.sh ../src/rectangleGenerator.js ../appTestData/input/all_rectangle_input ../appTestData/output/all_rectangle_output
+./run_test.sh ../mainRectangleGenerator.js ../appTestData/input/all_rectangle_input ../appTestData/output/all_rectangle_output
 Result1=$?
 ./run_test.sh ../src/diamondGenerator.js ../appTestData/input/all_diamond_input ../appTestData/output/all_diamond_output
 Result2=$?

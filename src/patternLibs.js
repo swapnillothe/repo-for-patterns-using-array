@@ -20,7 +20,7 @@ const repeatDash = function(width){
 
 const starAtStartEnd = function(widthForStar){
   let line = "*";
-  for(index3=2; index3<widthForStar; index3++){
+  for(index = 2; index < widthForStar; index++){
     line = line + " ";
   }
   line = line + "*";
@@ -28,17 +28,17 @@ const starAtStartEnd = function(widthForStar){
 } 
 
 const space = function(noOfSpaces){
-  let spaces="";
-  for(index=noOfSpaces; index>0; index--){
-    spaces+=" ";
+  let spaces = "";
+  for(index = noOfSpaces; index > 0; index--){
+    spaces += " ";
   }
   return spaces;
 }
 
 const star = function(noOfStars){
-  let stars="";
-  for(index=noOfStars; index>0; index--){
-    stars+="*";
+  let stars = "";
+  for(index = noOfStars; index > 0; index--){
+    stars += "*";
   }
   return stars;
 }
@@ -46,7 +46,7 @@ const star = function(noOfStars){
 const createRightTriangle = function(height){
   let createdTriangle = "";
   let delimeter = "";
-  for(let index=1; index<=height; index++){
+  for(let index = 1; index <= height; index++){
     let justifiedLayer = justifyText(repeatStar(index),(height-index));
     createdTriangle = createdTriangle+delimeter+justifiedLayer;
     delimeter = "\n";
@@ -57,7 +57,7 @@ const createRightTriangle = function(height){
 const createLeftTriangle = function(height){
   let createdTriangle = "";
   let delimeter = "";
-  for(let index=1; index<=height; index++){
+  for(let index = 1; index <= height; index++){
     let layer = repeatStar(index);
     createdTriangle = createdTriangle+delimeter+layer;
     delimeter = "\n";
@@ -68,21 +68,21 @@ const createLeftTriangle = function(height){
 const createFilledRect = function(width,height){
   let delimiter = "\n";
   let requiredRectangle = "";
-  for(let lineIndex=0; lineIndex<height; lineIndex++){
+  for(let lineIndex = 0; lineIndex < height; lineIndex++){
     requiredRectangle += repeatStar(width) + delimiter;
   }
   return requiredRectangle;
 }
 
-const createAlternateRect= function(width,height){
+const createAlternateRect = function(width,height){
   let requiredRectangle = "";
   let delimiter = "";
-  for(let lineIndex2=height; lineIndex2>0; lineIndex2--){
+  for(let lineIndex = height; lineIndex > 0; lineIndex--){
     requiredRectangle += delimiter;
     delimiter = "\n";
     requiredRectangle += repeatStar(width);
-    lineIndex2=lineIndex2-1;
-    if(lineIndex2>0){
+    lineIndex = lineIndex-1;
+    if(lineIndex > 0){
       requiredRectangle += delimiter
       requiredRectangle += repeatDash(width);
     }
@@ -101,35 +101,35 @@ const createEmptyRect = function(width,height){
   return requiredRectangle;
 }
 
-let requiredLine="";
-let keyIndex=1;
-let indexForStar=0;
+let requiredLine = "";
+let keyIndex = 1;
+let indexForStar = 0;
 
 const generateDiamond = function(sizeOfDiamond){
-  for(let index=sizeOfDiamond; index>0; index--){
+  for(let index = sizeOfDiamond; index > 0; index--){
     indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
-    requiredLine+=space(indexForSpaces);
-    indexForStar=(sizeOfDiamond-(2*indexForSpaces));
-    requiredLine+=star(indexForStar);
+    requiredLine += space(indexForSpaces);
+    indexForStar = (sizeOfDiamond-(2*indexForSpaces));
+    requiredLine += star(indexForStar);
     console.log(requiredLine);
-    requiredLine="";
-    keyIndex=Math.abs(keyIndex+2);
+    requiredLine = "";
+    keyIndex = Math.abs(keyIndex+2);
   }
 }
 
 const generateHollow = function(sizeOfDiamond){
-  for(let index=sizeOfDiamond; index>0; index--){
+  for(let index = sizeOfDiamond; index > 0; index--){
     indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
-    requiredLine+=space(indexForSpaces);
-    indexForStar=(1);
-    requiredLine+=star(indexForStar);
-    spacesForHollow=(sizeOfDiamond-2*indexForSpaces)-2;
-    requiredLine+=space(spacesForHollow);
+    requiredLine += space(indexForSpaces);
+    indexForStar = (1);
+    requiredLine += star(indexForStar);
+    spacesForHollow = (sizeOfDiamond-2*indexForSpaces)-2;
+    requiredLine += space(spacesForHollow);
     if(index != sizeOfDiamond && index != 1 ){
-      requiredLine+=star(1);
+      requiredLine += star(1);
     }
     console.log(requiredLine);
-    requiredLine="";
+    requiredLine = "";
     keyIndex=Math.abs(keyIndex+2);
   }
 }

@@ -1,17 +1,3 @@
-const main = function(){
-  let typeOfDiamond = process.argv[2]; 
-  let sizeOfDiamond = +process.argv[3];
-  if(typeOfDiamond=="diamond"){
-    return generateDiamond(sizeOfDiamond);
-  }
-  if(typeOfDiamond=="hollow"){
-    return generateHollow(sizeOfDiamond);
-  }
-  if(typeOfDiamond=="angled"){
-    return generateAngled(sizeOfDiamond);
-  }
-}
-
 let requiredLine="";
 let keyIndex=1;
 let indexForStar=0;

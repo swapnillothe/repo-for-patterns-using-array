@@ -38,18 +38,10 @@ const createLeftTriangle = function(height){
 
 exports.createRightTriangle = createRightTriangle;
 exports.createLeftTriangle = createLeftTriangle;
-const repeatCharacter = function(character,width){
-  return new Array(width).fill(character).join("");
-}
-
-const repeatStar = function(width){
-  return repeatCharacter("*",width);
-}
 
 const repeatDash = function(width){
   return repeatCharacter("-",width);
 }
-
 const starAtStartEnd = function(widthForStar){
   let line = "*";
   for(index3=2; index3<widthForStar; index3++){
@@ -97,6 +89,7 @@ const createEmptyRect = function(width,height){
 exports.createFilledRect = createFilledRect;
 exports.createEmptyRect = createEmptyRect;
 exports.createAlternateRect = createAlternateRect;
+
 let requiredLine="";
 let keyIndex=1;
 let indexForStar=0;
@@ -177,6 +170,7 @@ const generateAngled = function(sizeOfDiamond){
     keyIndex=Math.abs(keyIndex+2);
   }
 }
+
 exports.generateDiamond = generateDiamond;
 exports.generateHollow = generateHollow;
 exports.generateAngled = generateAngled;

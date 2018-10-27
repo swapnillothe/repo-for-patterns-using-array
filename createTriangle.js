@@ -1,4 +1,4 @@
-const lib = require("./src/triangleGenerator.js");
+const lib = require("./src/patternLibs.js");
 const createRightTriangle = lib.createRightTriangle;
 const createLeftTriangle = lib.createLeftTriangle;
 

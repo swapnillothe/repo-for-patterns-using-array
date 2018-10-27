@@ -1,4 +1,4 @@
-const lib = require("./src/rectangleGenerator.js");
+const lib = require("./src/patternLibs.js");
 const createFilledRect = lib.createFilledRect;
 const createEmptyRect = lib.createEmptyRect;
 const createAlternateRect = lib.createAlternateRect;

@@ -1,4 +1,4 @@
-const lib = require("./src/diamondGenerator.js"); 
+const lib = require("./src/patternLibs.js");
 const generateDiamond = lib.generateDiamond;
 const generateHollow = lib.generateHollow;
 const generateAngled = lib.generateAngled;

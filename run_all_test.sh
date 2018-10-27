@@ -1,10 +1,10 @@
 #! /bin/bash
 
-./run_test.sh ../createRectangle.js ../appTestData/input/all_rectangle_input ../appTestData/output/all_rectangle_output
+./testFiles/run_test.sh ./createRectangle.js ./appTestData/input/all_rectangle_input ./appTestData/output/all_rectangle_output
 Result1=$?
-./run_test.sh ../createDiamond.js ../appTestData/input/all_diamond_input ../appTestData/output/all_diamond_output
+./testFiles/run_test.sh ./createDiamond.js ./appTestData/input/all_diamond_input ./appTestData/output/all_diamond_output
 Result2=$?
-./run_test.sh ../createTriangle.js ../appTestData/input/all_triangle_input ../appTestData/output/all_triangle_output
+./testFiles/run_test.sh ./createTriangle.js ./appTestData/input/all_triangle_input ./appTestData/output/all_triangle_output
 Result3=$?
 
 if [ $Result1 = 0 ]; then

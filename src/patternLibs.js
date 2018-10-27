@@ -26,17 +26,10 @@ const starAtStartEnd = function(widthForStar){
     return "*" + repeatSpace(widthForStar-2) + "*";
 } 
 
-const space = function(noOfSpaces){
-  let spaces = "";
-  for(index = noOfSpaces; index > 0; index--){
-    spaces += " ";
-  }
-  return spaces;
-}
-
 const createRightTriangle = function(height){
   let createdTriangle = "";
   let delimeter = "";
+
   for(let index = 1; index <= height; index++){
     let justifiedLayer = justifyText(repeatStar(index),(height-index));
     createdTriangle = createdTriangle+delimeter+justifiedLayer;
@@ -48,6 +41,7 @@ const createRightTriangle = function(height){
 const createLeftTriangle = function(height){
   let createdTriangle = "";
   let delimeter = "";
+
   for(let index = 1; index <= height; index++){
     let layer = repeatStar(index);
     createdTriangle = createdTriangle+delimeter+layer;
@@ -115,7 +109,7 @@ const generateHollow = function(sizeOfDiamond){
     indexForStar = (1);
     requiredLine += repeatStar(indexForStar);
     spacesForHollow = (sizeOfDiamond-2*indexForSpaces)-2;
-    requiredLine += space(spacesForHollow);
+    requiredLine += repeatSpace(spacesForHollow);
     if(index != sizeOfDiamond && index != 1 ){
       requiredLine += repeatStar(1);
     }
@@ -149,7 +143,7 @@ const generateAngled = function(sizeOfDiamond){
 
     requiredLine += symbolForLeftSide;
     spacesForHollow = (sizeOfDiamond-2*indexForSpaces)-2;
-    requiredLine += space(spacesForHollow);
+    requiredLine += repeatSpace(spacesForHollow);
     requiredLine += symbolForRightSide;
     console.log(requiredLine);
     requiredLine = "";

@@ -36,15 +36,5 @@ const createLeftTriangle = function(height){
   return createdTriangle;
 }
 
-const main = function(){
-  let typeOfTriangle = process.argv[2];
-  let height = +process.argv[3];
-  if(typeOfTriangle=="left"){
-    console.log(createLeftTriangle(height));
-  }
-  if(typeOfTriangle=="right"){
-    console.log(createRightTriangle(height));
-  }
-  return;
-}
-main();
+exports.createRightTriangle = createRightTriangle;
+exports.createLeftTriangle = createLeftTriangle;

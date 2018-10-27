@@ -92,5 +92,6 @@ const generateAngled = function(sizeOfDiamond){
     keyIndex=Math.abs(keyIndex+2);
   }
 }
-
-main();
+exports.generateDiamond = generateDiamond;
+exports.generateHollow = generateHollow;
+exports.generateAngled = generateAngled;

@@ -14,6 +14,35 @@ const justifyText = function(text,justifyingWidth){
   return repeatSpace(justifyingWidth)+text;
 }
 
+const repeatDash = function(width){
+  return repeatCharacter("-",width);
+}
+
+const starAtStartEnd = function(widthForStar){
+  let line = "*";
+  for(index3=2; index3<widthForStar; index3++){
+    line = line + " ";
+  }
+  line = line + "*";
+    return line;
+} 
+
+const space = function(noOfSpaces){
+  let spaces="";
+  for(index=noOfSpaces; index>0; index--){
+    spaces+=" ";
+  }
+  return spaces;
+}
+
+const star = function(noOfStars){
+  let stars="";
+  for(index=noOfStars; index>0; index--){
+    stars+="*";
+  }
+  return stars;
+}
+
 const createRightTriangle = function(height){
   let createdTriangle = "";
   let delimeter = "";
@@ -35,19 +64,6 @@ const createLeftTriangle = function(height){
   }
   return createdTriangle;
 }
-
-
-const repeatDash = function(width){
-  return repeatCharacter("-",width);
-}
-const starAtStartEnd = function(widthForStar){
-  let line = "*";
-  for(index3=2; index3<widthForStar; index3++){
-    line = line + " ";
-  }
-  line = line + "*";
-    return line;
-} 
 
 const createFilledRect = function(width,height){
   let delimiter = "\n";
@@ -73,6 +89,7 @@ const createAlternateRect= function(width,height){
   }
   return requiredRectangle;
 }
+
 const createEmptyRect = function(width,height){
   let requiredRectangle = "";
   let delimiter = "\n";
@@ -84,26 +101,9 @@ const createEmptyRect = function(width,height){
   return requiredRectangle;
 }
 
-
 let requiredLine="";
 let keyIndex=1;
 let indexForStar=0;
-
-const space = function(noOfSpaces){
-  let spaces="";
-  for(index=noOfSpaces; index>0; index--){
-    spaces+=" ";
-  }
-  return spaces;
-}
-
-const star = function(noOfStars){
-  let stars="";
-  for(index=noOfStars; index>0; index--){
-    stars+="*";
-  }
-  return stars;
-}
 
 const generateDiamond = function(sizeOfDiamond){
   for(let index=sizeOfDiamond; index>0; index--){

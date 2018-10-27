@@ -36,8 +36,6 @@ const createLeftTriangle = function(height){
   return createdTriangle;
 }
 
-exports.createRightTriangle = createRightTriangle;
-exports.createLeftTriangle = createLeftTriangle;
 
 const repeatDash = function(width){
   return repeatCharacter("-",width);
@@ -86,9 +84,6 @@ const createEmptyRect = function(width,height){
   return requiredRectangle;
 }
 
-exports.createFilledRect = createFilledRect;
-exports.createEmptyRect = createEmptyRect;
-exports.createAlternateRect = createAlternateRect;
 
 let requiredLine="";
 let keyIndex=1;
@@ -174,3 +169,8 @@ const generateAngled = function(sizeOfDiamond){
 exports.generateDiamond = generateDiamond;
 exports.generateHollow = generateHollow;
 exports.generateAngled = generateAngled;
+exports.createRightTriangle = createRightTriangle;
+exports.createLeftTriangle = createLeftTriangle;
+exports.createFilledRect = createFilledRect;
+exports.createEmptyRect = createEmptyRect;
+exports.createAlternateRect = createAlternateRect;

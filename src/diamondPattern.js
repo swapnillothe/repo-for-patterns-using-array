@@ -1,3 +1,15 @@
+const main = function(){
+  if(typeOfDiamond=="diamond"){
+    return generateDiamond();
+  }
+  if(typeOfDiamond=="hollow"){
+    return generateHollow();
+  }
+  if(typeOfDiamond=="angled"){
+    return generateAngled();
+  }
+}
+
 let typeOfDiamond = process.argv[2]; 
 let sizeOfDiamond = +process.argv[3];
 let requiredLine="";
@@ -20,7 +32,7 @@ const star = function(noOfStars){
   return stars;
 }
 
-if(typeOfDiamond=="diamond"){
+const generateDiamond = function(){
   for(let index=sizeOfDiamond; index>0; index--){
     indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
     requiredLine+=space(indexForSpaces);
@@ -32,7 +44,7 @@ if(typeOfDiamond=="diamond"){
   }
 }
 
-if(typeOfDiamond=="hollow"){
+const generateHollow = function(){
   for(let index=sizeOfDiamond; index>0; index--){
     indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
     requiredLine+=space(indexForSpaces);
@@ -49,7 +61,7 @@ if(typeOfDiamond=="hollow"){
   }
 }
 
-if(typeOfDiamond=="angled"){
+const generateAngled = function(){
   for(let index=sizeOfDiamond; index>0; index--){
     let symbolForLeftSide="\/";
     let symbolForRightSide="\\";
@@ -80,3 +92,5 @@ if(typeOfDiamond=="angled"){
     keyIndex=Math.abs(keyIndex+2);
   }
 }
+
+main();

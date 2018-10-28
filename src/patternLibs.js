@@ -195,21 +195,31 @@ const createTriangle = function(typeOfTriangle,height){
     return createRightTriangle(height); 
   }
 }
-const createRectangle = function(){
-  return;
+
+const createRectangle = function(typeOfRectangle,width,height){
+  if(typeOfRectangle == "filled"){
+    return createFilledRect(width,height);
+  }
+  if(typeOfRectangle == "empty"){
+    return createEmptyRect(width,height);
+  }
+  if(typeOfRectangle == "alternating"){
+    return createAlternateRect(width,height);
+  }
 }
-const createDiamond = function(){
-  return;
+
+const createDiamond = function(typeOfDiamond,sizeOfDiamond){
+  if(typeOfDiamond == "diamond"){
+    return generateDiamond(sizeOfDiamond);
+  }
+  if(typeOfDiamond == "hollow"){
+    return generateHollow(sizeOfDiamond);
+  }
+  if(typeOfDiamond == "angled"){
+    return generateAngled(sizeOfDiamond);
+  }
 }
 
 exports.createTriangle = createTriangle;
 exports.createRectangle = createRectangle;
 exports.createDiamond = createDiamond;
-exports.generateDiamond = generateDiamond;
-exports.generateHollow = generateHollow;
-exports.generateAngled = generateAngled;
-exports.createRightTriangle = createRightTriangle;
-exports.createLeftTriangle = createLeftTriangle;
-exports.createFilledRect = createFilledRect;
-exports.createEmptyRect = createEmptyRect;
-exports.createAlternateRect = createAlternateRect;

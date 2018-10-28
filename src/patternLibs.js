@@ -1,6 +1,6 @@
-const repeatCharacter = function(character,height){
+const repeatCharacter = function(character,width){
   let repeatedCharacter = "";
-  for(let index = 0; index < height; index++){
+  for(let index = 0; index < width; index++){
     repeatedCharacter = repeatedCharacter + character;
   }
   return repeatedCharacter;
@@ -25,6 +25,20 @@ const repeatDash = function(width){
 const createStarredEnd = function(widthForStar){
     return "*" + repeatSpace(widthForStar-2) + "*";
 } 
+
+const generateLine = function(leftChar, middleChar, rightChar, width){
+  let line = repeatCharacter(leftChar,1%(width+1));
+  line = line + repeatCharacter(middleChar, width-2);
+  return line + repeatCharacter(rightChar,1%width);
+}
+
+const generateFilledLine = function(width){
+  return generateLine("*","*","*",width);
+}
+
+const generateHollowLine = function(width){
+  return generateLine("*"," ","*",width);
+}
 
 const createRightTriangle = function(height){
   let createdTriangle = "";

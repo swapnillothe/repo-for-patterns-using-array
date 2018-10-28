@@ -7,13 +7,13 @@ const main = function(){
   let typeOfDiamond = process.argv[2]; 
   let sizeOfDiamond = +process.argv[3];
   if(typeOfDiamond=="diamond"){
-    return generateDiamond(sizeOfDiamond);
+    return console.log(generateDiamond(sizeOfDiamond));
   }
   if(typeOfDiamond=="hollow"){
-    return generateHollow(sizeOfDiamond);
+    return console.log(generateHollow(sizeOfDiamond));
   }
   if(typeOfDiamond=="angled"){
-    return generateAngled(sizeOfDiamond);
+    return console.log(generateAngled(sizeOfDiamond));
   }
 }
 

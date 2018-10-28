@@ -87,51 +87,58 @@ const createEmptyRect = function(width,height){
 }
 
 const generateDiamond = function(sizeOfDiamond){
-  let requiredLine = "";
   let keyIndex = 1;
   let indexForStar = 0;
+  let diamond = "";
+  let delimeter = "";
+
   for(let index = sizeOfDiamond; index > 0; index--){
     indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
-    requiredLine += repeatSpace(indexForSpaces);
+    let requiredLine = repeatSpace(indexForSpaces);
     indexForStar = (sizeOfDiamond-(2*indexForSpaces));
     requiredLine += repeatStar(indexForStar);
-    console.log(requiredLine);
-    requiredLine = "";
-    keyIndex = Math.abs(keyIndex+2);
+    diamond = diamond + delimeter + requiredLine;
+    keyIndex = keyIndex+2;
+    delimeter = "\n";
   }
+  return diamond;
 }
 
 const generateHollow = function(sizeOfDiamond){
-  let requiredLine = "";
   let keyIndex = 1;
   let indexForStar = 0;
+  let diamond = "";
+  let delimeter = "";
+
   for(let index = sizeOfDiamond; index > 0; index--){
     indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
-    requiredLine += repeatSpace(indexForSpaces);
-    indexForStar = (1);
-    requiredLine += repeatStar(indexForStar);
+    let requiredLine = repeatSpace(indexForSpaces);
+    requiredLine += repeatStar(1);
     spacesForHollow = (sizeOfDiamond-2*indexForSpaces)-2;
     requiredLine += repeatSpace(spacesForHollow);
     if(index != sizeOfDiamond && index != 1 ){
       requiredLine += repeatStar(1);
     }
-    console.log(requiredLine);
-    requiredLine = "";
-    keyIndex=Math.abs(keyIndex+2);
+    diamond = diamond + delimeter + requiredLine;
+    keyIndex = Math.abs(keyIndex+2);
+    delimeter = "\n";
   }
+  return diamond;
 }
 
 const generateAngled = function(sizeOfDiamond){
-  let requiredLine = "";
+  let diamond = "";
+  let delimeter = "";
   let keyIndex = 1;
   let indexForStar = 0;
+
   for(let index = sizeOfDiamond; index > 0; index--){
     let symbolForLeftSide = "\/";
     let symbolForRightSide = "\\";
     let middleLayer = Math.ceil(sizeOfDiamond/2);
     let indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
 
-    requiredLine += repeatSpace(indexForSpaces);
+    let requiredLine = repeatSpace(indexForSpaces);
 
     if(index < middleLayer){
       symbolForLeftSide = "\\";
@@ -150,10 +157,11 @@ const generateAngled = function(sizeOfDiamond){
     spacesForHollow = (sizeOfDiamond-2*indexForSpaces)-2;
     requiredLine += repeatSpace(spacesForHollow);
     requiredLine += symbolForRightSide;
-    console.log(requiredLine);
-    requiredLine = "";
-    keyIndex = Math.abs(keyIndex+2);
+    keyIndex = keyIndex+2;
+    diamond = diamond + delimeter + requiredLine;
+    delimeter = "\n";
   }
+  return diamond;
 }
 
 exports.generateDiamond = generateDiamond;

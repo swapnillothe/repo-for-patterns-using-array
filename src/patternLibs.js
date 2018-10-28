@@ -86,11 +86,10 @@ const createEmptyRect = function(width,height){
   return requiredRectangle;
 }
 
-let requiredLine = "";
-let keyIndex = 1;
-let indexForStar = 0;
-
 const generateDiamond = function(sizeOfDiamond){
+  let requiredLine = "";
+  let keyIndex = 1;
+  let indexForStar = 0;
   for(let index = sizeOfDiamond; index > 0; index--){
     indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
     requiredLine += repeatSpace(indexForSpaces);
@@ -103,6 +102,9 @@ const generateDiamond = function(sizeOfDiamond){
 }
 
 const generateHollow = function(sizeOfDiamond){
+  let requiredLine = "";
+  let keyIndex = 1;
+  let indexForStar = 0;
   for(let index = sizeOfDiamond; index > 0; index--){
     indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
     requiredLine += repeatSpace(indexForSpaces);
@@ -120,6 +122,9 @@ const generateHollow = function(sizeOfDiamond){
 }
 
 const generateAngled = function(sizeOfDiamond){
+  let requiredLine = "";
+  let keyIndex = 1;
+  let indexForStar = 0;
   for(let index = sizeOfDiamond; index > 0; index--){
     let symbolForLeftSide = "\/";
     let symbolForRightSide = "\\";

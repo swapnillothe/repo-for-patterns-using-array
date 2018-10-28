@@ -26,6 +26,13 @@ const createStarredEnd = function(widthForStar){
     return "*" + repeatSpace(widthForStar-2) + "*";
 } 
 
+const getOddNumber = function(){
+  let start = -1;
+  return function(){
+    return start+=2;
+  }
+}
+
 const generateLine = function(leftChar, middleChar, rightChar, width){
   let line = repeatCharacter(leftChar,1%(width+1));
   line = line + repeatCharacter(middleChar, width-2);
@@ -46,7 +53,7 @@ const createRightTriangle = function(height){
 
   for(let index = 1; index <= height; index++){
     let justifiedLayer = justifyText(repeatStar(index),(height-index));
-    createdTriangle = createdTriangle+delimeter+justifiedLayer;
+    createdTriangle = createdTriangle + delimeter + justifiedLayer;
     delimeter = "\n";
   }
   return createdTriangle;
@@ -68,7 +75,7 @@ const createFilledRect = function(width,height){
   let delimeter = "\n";
 
   for(let index = 0; index < height; index++){
-    rectangle += repeatStar(width) + delimeter;
+    rectangle = rectangle + generateFilledLine(width) + delimeter;
   }
   return rectangle;
 }
@@ -94,7 +101,7 @@ const createEmptyRect = function(width,height){
 
   rectangle = repeatStar(width) + delimeter;
   for(let index = 2; index < height; index++ ){
-    rectangle = rectangle + createStarredEnd(width) + delimeter;
+    rectangle = rectangle + generateHollowLine(width) + delimeter;
   }
   rectangle = rectangle + repeatStar(width);
 
@@ -104,15 +111,14 @@ const createEmptyRect = function(width,height){
 const generateDiamond = function(sizeOfDiamond){
   let diamond = "";
   let delimeter = "";
-  let keyIndex = 1;
+  let layerWidth = getOddNumber();
 
   for(let index = sizeOfDiamond; index > 0; index--){
-    indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
+    indexForSpaces = Math.abs((sizeOfDiamond - layerWidth())/2);
     let requiredLayer = repeatSpace(indexForSpaces);
     let indexForStar = (sizeOfDiamond-(2*indexForSpaces));
     requiredLayer += repeatStar(indexForStar);
     diamond = diamond + delimeter + requiredLayer;
-    keyIndex = keyIndex+2;
     delimeter = "\n";
   }
   return diamond;
@@ -121,10 +127,10 @@ const generateDiamond = function(sizeOfDiamond){
 const generateHollow = function(sizeOfDiamond){
   let diamond = "";
   let delimeter = "";
-  let keyIndex = 1;
+  let layerWidth = getOddNumber();
 
   for(let index = sizeOfDiamond; index > 0; index--){
-    indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
+    indexForSpaces = Math.abs((sizeOfDiamond - layerWidth())/2);
     let requiredLayer = repeatSpace(indexForSpaces);
     requiredLayer += repeatStar(1);
     spacesForHollow = (sizeOfDiamond-2*indexForSpaces)-2;
@@ -133,7 +139,6 @@ const generateHollow = function(sizeOfDiamond){
       requiredLayer += repeatStar(1);
     }
     diamond = diamond + delimeter + requiredLayer;
-    keyIndex = Math.abs(keyIndex+2);
     delimeter = "\n";
   }
   return diamond;
@@ -142,13 +147,13 @@ const generateHollow = function(sizeOfDiamond){
 const generateAngled = function(sizeOfDiamond){
   let diamond = "";
   let delimeter = "";
-  let keyIndex = 1;
+  let layerWidth = getOddNumber();
 
   for(let index = sizeOfDiamond; index > 0; index--){
     let symbolForLeftSide = "\/";
     let symbolForRightSide = "\\";
     let middleLayer = Math.ceil(sizeOfDiamond/2);
-    let indexForSpaces = Math.abs((sizeOfDiamond - keyIndex)/2);
+    let indexForSpaces = Math.abs((sizeOfDiamond - layerWidth())/2);
 
     let requiredLayer = repeatSpace(indexForSpaces);
 
@@ -169,7 +174,6 @@ const generateAngled = function(sizeOfDiamond){
     spacesForHollow = (sizeOfDiamond-2*indexForSpaces)-2;
     requiredLayer += repeatSpace(spacesForHollow);
     requiredLayer += symbolForRightSide;
-    keyIndex = keyIndex+2;
     diamond = diamond + delimeter + requiredLayer;
     delimeter = "\n";
   }

@@ -187,6 +187,24 @@ const generateAngled = function(sizeOfDiamond){
   return diamond;
 }
 
+const createTriangle = function(typeOfTriangle,height){
+  if(typeOfTriangle == "left"){
+    return createLeftTriangle(height); 
+  }
+  if(typeOfTriangle == "right"){
+    return createRightTriangle(height); 
+  }
+}
+const createRectangle = function(){
+  return;
+}
+const createDiamond = function(){
+  return;
+}
+
+exports.createTriangle = createTriangle;
+exports.createRectangle = createRectangle;
+exports.createDiamond = createDiamond;
 exports.generateDiamond = generateDiamond;
 exports.generateHollow = generateHollow;
 exports.generateAngled = generateAngled;

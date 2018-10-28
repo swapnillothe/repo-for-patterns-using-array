@@ -22,7 +22,7 @@ const repeatDash = function(width){
   return repeatCharacter("-",width);
 }
 
-const starAtStartEnd = function(widthForStar){
+const createStarredEnd = function(widthForStar){
     return "*" + repeatSpace(widthForStar-2) + "*";
 } 
 
@@ -63,28 +63,28 @@ const createAlternateRect = function(width,height){
   let rectangle = "";
   let delimeter = "";
 
-  for(let lineIndex = height; lineIndex > 0; lineIndex--){
-    rectangle += delimeter;
+  for(let index = height; index > 0; index--){
+    rectangle = rectangle + delimeter + repeatStar(width);
     delimeter = "\n";
-    rectangle += repeatStar(width);
-    lineIndex = lineIndex-1;
-    if(lineIndex > 0){
-      rectangle += delimeter
-      rectangle += repeatDash(width);
+    index--;
+    if(index > 0){
+      rectangle = rectangle + delimeter + repeatDash(width); 
     }
   }
   return rectangle;
 }
 
 const createEmptyRect = function(width,height){
-  let requiredRectangle = "";
+  let rectangle = "";
   let delimeter = "\n";
-  requiredRectangle = repeatStar(width) + delimeter;
-  for(let lineIndex3 = 2; lineIndex3 < height; lineIndex3++ ){
-    requiredRectangle += starAtStartEnd(width) + delimeter;
+
+  rectangle = repeatStar(width) + delimeter;
+  for(let index = 2; index < height; index++ ){
+    rectangle = rectangle + createStarredEnd(width) + delimeter;
   }
-  requiredRectangle += repeatStar(width);
-  return requiredRectangle;
+  rectangle = rectangle + repeatStar(width);
+
+  return rectangle;
 }
 
 const generateDiamond = function(sizeOfDiamond){

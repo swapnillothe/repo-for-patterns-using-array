@@ -114,9 +114,9 @@ const generateDiamond = function(sizeOfDiamond){
   let layerWidth = getOddNumber();
 
   for(let index = sizeOfDiamond; index > 0; index--){
-    indexForSpaces = Math.abs((sizeOfDiamond - layerWidth())/2);
-    let requiredLayer = repeatSpace(indexForSpaces);
-    let indexForStar = (sizeOfDiamond-(2*indexForSpaces));
+    justifyWidth = Math.abs((sizeOfDiamond - layerWidth())/2);
+    let requiredLayer = repeatSpace(justifyWidth);
+    let indexForStar = (sizeOfDiamond-(2*justifyWidth));
     requiredLayer += repeatStar(indexForStar);
     diamond = diamond + delimeter + requiredLayer;
     delimeter = "\n";
@@ -130,10 +130,10 @@ const generateHollow = function(sizeOfDiamond){
   let layerWidth = getOddNumber();
 
   for(let index = sizeOfDiamond; index > 0; index--){
-    indexForSpaces = Math.abs((sizeOfDiamond - layerWidth())/2);
-    let requiredLayer = repeatSpace(indexForSpaces);
+    justifyWidth = Math.abs((sizeOfDiamond - layerWidth())/2);
+    let requiredLayer = repeatSpace(justifyWidth);
     requiredLayer += repeatStar(1);
-    spacesForHollow = (sizeOfDiamond-2*indexForSpaces)-2;
+    spacesForHollow = (sizeOfDiamond-2*justifyWidth)-2;
     requiredLayer += repeatSpace(spacesForHollow);
     if(index != sizeOfDiamond && index != 1 ){
       requiredLayer += repeatStar(1);
@@ -153,9 +153,9 @@ const generateAngled = function(sizeOfDiamond){
     let symbolForLeftSide = "\/";
     let symbolForRightSide = "\\";
     let middleLayer = Math.ceil(sizeOfDiamond/2);
-    let indexForSpaces = Math.abs((sizeOfDiamond - layerWidth())/2);
+    let justifyWidth = Math.abs((sizeOfDiamond - layerWidth())/2);
 
-    let requiredLayer = repeatSpace(indexForSpaces);
+    let requiredLayer = repeatSpace(justifyWidth);
 
     if(index < middleLayer){
       symbolForLeftSide = "\\";
@@ -171,7 +171,7 @@ const generateAngled = function(sizeOfDiamond){
     }
 
     requiredLayer += symbolForLeftSide;
-    spacesForHollow = (sizeOfDiamond-2*indexForSpaces)-2;
+    spacesForHollow = (sizeOfDiamond-2*justifyWidth)-2;
     requiredLayer += repeatSpace(spacesForHollow);
     requiredLayer += symbolForRightSide;
     diamond = diamond + delimeter + requiredLayer;

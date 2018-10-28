@@ -43,44 +43,45 @@ const createLeftTriangle = function(height){
   let delimeter = "";
 
   for(let index = 1; index <= height; index++){
-    let layer = repeatStar(index);
-    createdTriangle = createdTriangle+delimeter+layer;
+    createdTriangle = createdTriangle + delimeter + repeatStar(index);
     delimeter = "\n";
   }
   return createdTriangle;
 }
 
 const createFilledRect = function(width,height){
-  let delimiter = "\n";
-  let requiredRectangle = "";
-  for(let lineIndex = 0; lineIndex < height; lineIndex++){
-    requiredRectangle += repeatStar(width) + delimiter;
+  let rectangle = "";
+  let delimeter = "\n";
+
+  for(let index = 0; index < height; index++){
+    rectangle += repeatStar(width) + delimeter;
   }
-  return requiredRectangle;
+  return rectangle;
 }
 
 const createAlternateRect = function(width,height){
-  let requiredRectangle = "";
-  let delimiter = "";
+  let rectangle = "";
+  let delimeter = "";
+
   for(let lineIndex = height; lineIndex > 0; lineIndex--){
-    requiredRectangle += delimiter;
-    delimiter = "\n";
-    requiredRectangle += repeatStar(width);
+    rectangle += delimeter;
+    delimeter = "\n";
+    rectangle += repeatStar(width);
     lineIndex = lineIndex-1;
     if(lineIndex > 0){
-      requiredRectangle += delimiter
-      requiredRectangle += repeatDash(width);
+      rectangle += delimeter
+      rectangle += repeatDash(width);
     }
   }
-  return requiredRectangle;
+  return rectangle;
 }
 
 const createEmptyRect = function(width,height){
   let requiredRectangle = "";
-  let delimiter = "\n";
-  requiredRectangle = repeatStar(width) + delimiter;
+  let delimeter = "\n";
+  requiredRectangle = repeatStar(width) + delimeter;
   for(let lineIndex3 = 2; lineIndex3 < height; lineIndex3++ ){
-    requiredRectangle += starAtStartEnd(width) + delimiter;
+    requiredRectangle += starAtStartEnd(width) + delimeter;
   }
   requiredRectangle += repeatStar(width);
   return requiredRectangle;

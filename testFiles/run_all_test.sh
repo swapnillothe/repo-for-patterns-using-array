@@ -25,7 +25,7 @@ else
   echo triangleGenerator test failed 
 fi
 
-node ./testFiles/patternLibsTest.js
+node ./tests/patternLibsTest.js
 Result4=$?
 
 if [ $Result4 = 0 ]; then
@@ -34,7 +34,7 @@ else
   echo assertion tests failed 
 fi
 
-node ./testFiles/patternUtilsLibTest.js
+node ./tests/patternUtilsLibTest.js
 Result5=$?
 
 if [ $Result5 = 0 ]; then

@@ -79,10 +79,11 @@ const createLeftTriangle = function(height){
 
 const createFilledRectangle = function(width,height){
   let rectangle = "";
-  let delimeter = "\n";
+  let delimeter = "";
 
   for(let index = 0; index < height; index++){
-    rectangle = rectangle + generateFilledLine(width) + delimeter;
+    rectangle = rectangle + delimeter + generateFilledLine(width);
+    delimeter = "\n";
   }
   return rectangle;
 }

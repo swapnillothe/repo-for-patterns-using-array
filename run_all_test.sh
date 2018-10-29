@@ -25,3 +25,11 @@ else
   echo triangleGenerator test failed 
 fi
 
+node ./testFiles/patternLibsTest.js
+Result4=$?
+
+if [ $Result4 = 0 ]; then
+  echo assertion tests passed 
+else
+  echo assertion tests failed 
+fi

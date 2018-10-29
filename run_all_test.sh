@@ -33,3 +33,13 @@ if [ $Result4 = 0 ]; then
 else
   echo assertion tests failed 
 fi
+
+node ./testFiles/patternUtilsLibTest.js
+Result5=$?
+
+if [ $Result5 = 0 ]; then
+  echo util assertion tests passed 
+else
+  echo util assertion tests failed 
+fi
+

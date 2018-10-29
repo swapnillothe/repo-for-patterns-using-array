@@ -77,7 +77,7 @@ const createLeftTriangle = function(height){
   return createdTriangle;
 }
 
-const createFilledRect = function(width,height){
+const createFilledRectangle = function(width,height){
   let rectangle = "";
   let delimeter = "\n";
 
@@ -87,7 +87,7 @@ const createFilledRect = function(width,height){
   return rectangle;
 }
 
-const createAlternateRect = function(width,height){
+const createAlternateRectangle = function(width,height){
   let rectangle = "";
   let delimeter = "";
 
@@ -102,7 +102,7 @@ const createAlternateRect = function(width,height){
   return rectangle;
 }
 
-const createEmptyRect = function(width,height){
+const createEmptyRectangle = function(width,height){
   let rectangle = "";
   let delimeter = "\n";
 
@@ -115,7 +115,7 @@ const createEmptyRect = function(width,height){
   return rectangle;
 }
 
-const generateDiamond = function(sizeOfDiamond){
+const createFilledDiamond = function(sizeOfDiamond){
   let diamond = "";
   let delimeter = "";
   let justifyWidth = calculateJustifyWidth(sizeOfDiamond);
@@ -138,13 +138,9 @@ const generateHollow = function(sizeOfDiamond){
 
   for(let index = sizeOfDiamond; index > 0; index--){
     let spaces = justifyWidth();
-    let requiredLayer = repeatSpace(spaces);
-    requiredLayer += repeatStar(1);
-    spacesForHollow = (sizeOfDiamond-2*spaces)-2;
-    requiredLayer += repeatSpace(spacesForHollow);
-    if(index != sizeOfDiamond && index != 1 ){
-      requiredLayer += repeatStar(1);
-    }
+    let requiredLayer = repeatSpace(spaces); 
+    spacesForHollow = (sizeOfDiamond-2*spaces);
+    requiredLayer += generateHollowLine(spacesForHollow);
     diamond = diamond + delimeter + requiredLayer;
     delimeter = "\n";
   }
@@ -198,19 +194,19 @@ const createTriangle = function(typeOfTriangle,height){
 
 const createRectangle = function(typeOfRectangle,width,height){
   if(typeOfRectangle == "filled"){
-    return createFilledRect(width,height);
+    return createFilledRectangle(width,height);
   }
   if(typeOfRectangle == "empty"){
-    return createEmptyRect(width,height);
+    return createEmptyRectangle(width,height);
   }
   if(typeOfRectangle == "alternating"){
-    return createAlternateRect(width,height);
+    return createAlternateRectangle(width,height);
   }
 }
 
 const createDiamond = function(typeOfDiamond,sizeOfDiamond){
-  if(typeOfDiamond == "diamond"){
-    return generateDiamond(sizeOfDiamond);
+  if(typeOfDiamond == "filled"){
+    return createFilledDiamond(sizeOfDiamond);
   }
   if(typeOfDiamond == "hollow"){
     return generateHollow(sizeOfDiamond);

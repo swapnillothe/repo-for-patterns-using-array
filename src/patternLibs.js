@@ -134,37 +134,30 @@ const generateAngled = function(sizeOfDiamond){
   return diamond;
 }
 
-const createTriangle = function(typeOfTriangle,height){
-  if(typeOfTriangle == "left"){
-    return createLeftTriangle(height); 
-  }
-  if(typeOfTriangle == "right"){
-    return createRightTriangle(height); 
-  }
+const Triangle = {};
+Triangle.left = createLeftTriangle;
+Triangle.right = createRightTriangle;
+
+const Rectangle = {};
+Rectangle.filled = createFilledRectangle;
+Rectangle.empty = createEmptyRectangle;
+Rectangle.alternating = createAlternateRectangle;
+
+const Diamond = {};
+Diamond.filled = createFilledDiamond;
+Diamond.hollow = generateHollow;
+Diamond.angled = generateAngled;
+
+const createTriangle = function(typeOfTriangle, height){
+  return Triangle[typeOfTriangle](height);
 }
 
 const createRectangle = function(typeOfRectangle,width,height){
-  if(typeOfRectangle == "filled"){
-    return createFilledRectangle(width,height);
-  }
-  if(typeOfRectangle == "empty"){
-    return createEmptyRectangle(width,height);
-  }
-  if(typeOfRectangle == "alternating"){
-    return createAlternateRectangle(width,height);
-  }
+  return Rectangle[typeOfRectangle](width,height);
 }
 
 const createDiamond = function(typeOfDiamond,sizeOfDiamond){
-  if(typeOfDiamond == "filled"){
-    return createFilledDiamond(sizeOfDiamond);
-  }
-  if(typeOfDiamond == "hollow"){
-    return generateHollow(sizeOfDiamond);
-  }
-  if(typeOfDiamond == "angled"){
-    return generateAngled(sizeOfDiamond);
-  }
+  return Diamond[typeOfDiamond](sizeOfDiamond);
 }
 
 exports.createTriangle = createTriangle;

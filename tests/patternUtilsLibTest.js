@@ -13,6 +13,8 @@ const generateHollowLine = library.generateHollowLine;
 const calculateJustifyWidth = library.calculateJustifyWidth;
 const increment = library.increment; 
 const createNumberSeries = library.createNumberSeries;
+const generateUpperPartDiamond = library.generateUpperPartDiamond;
+const generateLowerPartDiamond = library.generateLowerPartDiamond;
 
 // Assertion test for repeatCharacter with three stars//
 let actual_output_3_stars = repeatCharacter("*",3);
@@ -102,6 +104,21 @@ assert.deepEqual(generateHollowLine(6),"*    *");
 assert.deepEqual(generateHollowLine(5),"*   *");
 assert.deepEqual(generateHollowLine(3),"* *");
 assert.deepEqual(generateHollowLine(2),"**");
+
+
+// Assertion test for generateUpperPartDiamond function //
+assert.deepEqual(generateUpperPartDiamond(4),"\/  \\");
+assert.deepEqual(generateUpperPartDiamond(6),"\/    \\");
+assert.deepEqual(generateUpperPartDiamond(5),"\/   \\");
+assert.deepEqual(generateUpperPartDiamond(3),"\/ \\");
+assert.deepEqual(generateUpperPartDiamond(2),"\/\\");
+
+// Assertion test for generateLowerPartDiamond function //
+assert.deepEqual(generateLowerPartDiamond(4),"\\  \/");
+assert.deepEqual(generateLowerPartDiamond(6),"\\    \/");
+assert.deepEqual(generateLowerPartDiamond(5),"\\   \/");
+assert.deepEqual(generateLowerPartDiamond(3),"\\ \/");
+assert.deepEqual(generateLowerPartDiamond(2),"\\\/");
 
 // Assertion test for calculateJustifyWidth function //
 justifyWidth = calculateJustifyWidth(5);

@@ -31,36 +31,28 @@ const createLeftTriangle = function(height){
 }
 
 const createFilledRectangle = function(width,height){
-  rectangle = new Array(height).fill(width);
-  rectangle = rectangle.map(repeatStar);
+  rectangle = new Array(height).fill(repeatStar(width));
   return rectangle.join("\n");
 }
 
-const createAlternateRectangle = function(width,height){
-  let rectangle = "";
-  let delimeter = "";
+const selectPattern = function(width,layerIndex){
+  patterns = [repeatStar,repeatDash];
+  return patterns[layerIndex%2](width); 
+}
 
-  for(let index = height; index > 0; index--){
-    rectangle = rectangle + delimeter + repeatStar(width);
-    delimeter = "\n";
-    index--;
-    if(index > 0){
-      rectangle = rectangle + delimeter + repeatDash(width); 
-    }
-  }
-  return rectangle;
+const createAlternateRectangle = function(width,height){
+  rectangle = new Array(height).fill(width);
+  rectangle = rectangle.map(selectPattern);
+  return rectangle.join("\n");
 }
 
 const createEmptyRectangle = function(width,height){
-  let rectangle = "";
   let delimeter = "\n";
-
-  rectangle = repeatStar(width) + delimeter;
+  let rectangle = repeatStar(width) + delimeter;
   for(let index = 2; index < height; index++ ){
     rectangle = rectangle + generateHollowLine(width) + delimeter;
   }
   rectangle = rectangle + repeatStar(width);
-
   return rectangle;
 }
 

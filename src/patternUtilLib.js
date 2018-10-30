@@ -49,6 +49,14 @@ const generateHollowLine = function(width){
   return generateLine("*"," ","*",width);
 }
 
+const generateUpperPartDiamond = function(width){
+  return generateLine("\/"," ","\\",width);
+}
+
+const generateLowerPartDiamond = function(width){
+  return generateLine("\\"," ","\/",width);
+}
+
 const calculateJustifyWidth = function(width){
   let layerWidth = getOddNumber();
   return function(){
@@ -82,3 +90,5 @@ exports.generateHollowLine = generateHollowLine;
 exports.calculateJustifyWidth = calculateJustifyWidth;
 exports.increment = increment;
 exports.createNumberSeries = createNumberSeries;
+exports.generateUpperPartDiamond = generateUpperPartDiamond;
+exports.generateLowerPartDiamond = generateLowerPartDiamond;

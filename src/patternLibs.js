@@ -12,6 +12,8 @@ const generateFilledLine = library.generateFilledLine;
 const generateHollowLine = library.generateHollowLine;
 const calculateJustifyWidth = library.calculateJustifyWidth;
 const createNumberSeries = library.createNumberSeries;
+const generateUpperPartDiamond = library.generateUpperPartDiamond;
+const generateLowerPartDiamond = library.generateLowerPartDiamond;
 
 const createRightTriangle = function(height){
   let createdTriangle = "";
@@ -56,64 +58,37 @@ const createEmptyRectangle = function(width,height){
   return rectangle;
 }
 
-const createFilledDiamond = function(sizeOfDiamond){
-  let diamond = "";
-  let delimeter = "";
+const getShape = function(sizeOfDiamond){
   let justifyWidth = calculateJustifyWidth(sizeOfDiamond);
-
-  for(let index = sizeOfDiamond; index > 0; index--){
-    let spaces = justifyWidth();
-    let indexForStar = (sizeOfDiamond-(2*spaces));
-    let requiredLayer = repeatSpace(spaces) + repeatStar(indexForStar);
-    diamond = diamond + delimeter + requiredLayer;
-    delimeter = "\n";
+  return function(layerGenerator){
+    let spaces = justifyWidth(layerGenerator);
+    layer = layerGenerator(sizeOfDiamond-(2*spaces));
+    return repeatSpace(spaces)+layer;
   }
-  return diamond;
+}
+
+const createFilledDiamond = function(sizeOfDiamond){
+  let diamond = new Array(sizeOfDiamond).fill(generateFilledLine);
+  let fillDiamond = getShape(sizeOfDiamond);
+  return diamond.map(fillDiamond).join("\n");
 }
 
 const createHollowDiamond = function(sizeOfDiamond){
-  let diamond = "";
-  let delimeter = "";
-  let justifyWidth = calculateJustifyWidth(sizeOfDiamond);
-
-  for(let index = sizeOfDiamond; index > 0; index--){
-    let spaces = justifyWidth();
-    spacesForHollow = (sizeOfDiamond-2*spaces);
-    let requiredLayer = repeatSpace(spaces) + generateHollowLine(spacesForHollow);
-    diamond = diamond + delimeter + requiredLayer;
-    delimeter = "\n";
-  }
-  return diamond;
+  let diamond = new Array(sizeOfDiamond).fill(generateHollowLine);
+  let fillDiamond = getShape(sizeOfDiamond);
+  return diamond.map(fillDiamond).join("\n");
 }
 
-const createAngledDiamond = function(sizeOfDiamond){
-  let diamond = "";
-  let delimeter = "\n";
-  let justifyWidth = calculateJustifyWidth(sizeOfDiamond);
-  diamond = repeatSpace(justifyWidth()) + generateFilledLine(1);
+const createAngledDiamond = function(size){
+  let midLayer = Math.floor(size/2);
 
-  for(let index = sizeOfDiamond-1; index > 1; index--){
-    let leftChar = "\/";
-    let rightChar = "\\";
-    let middleLayer = Math.ceil(sizeOfDiamond/2);
-    let spaces = justifyWidth();
+  let diamond = new Array(size).fill(generateUpperPartDiamond);
+  diamond[0] = diamond[size-1] = generateFilledLine;
+  diamond[midLayer] = generateHollowLine;
+  diamond.fill(generateLowerPartDiamond,midLayer+1,size-1);
 
-    let requiredLayer = repeatSpace(spaces);
-    if(index < middleLayer){
-      leftChar = "\\";
-      rightChar = "\/";
-    }
-    if(index == middleLayer){
-      leftChar = "*";
-      rightChar = "*";
-    }
-
-    layerWidth = (sizeOfDiamond-2*spaces);
-    requiredLayer += generateLine(leftChar," ",rightChar,layerWidth);
-    diamond = diamond + delimeter + requiredLayer;
-  }
-  diamond += delimeter + repeatSpace(justifyWidth()) + generateFilledLine(1);
-  return diamond;
+  let fillDiamond = getShape(size);
+  return diamond.map(fillDiamond).join("\n");
 }
 
 const Triangle = {};

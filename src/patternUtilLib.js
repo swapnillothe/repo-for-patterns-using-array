@@ -56,6 +56,19 @@ const calculateJustifyWidth = function(width){
   }
 }
 
+const increment = function(){
+  let number = 1;
+  return function(){
+    return number++;
+  }
+}
+
+const createNumberSeries = function(limit){
+  let series = new Array(limit).fill(1);
+  createSeries = increment();
+  return series.map(createSeries);
+}
+
 exports.repeatCharacter = repeatCharacter;
 exports.repeatStar = repeatStar;
 exports.repeatSpace = repeatSpace;
@@ -67,3 +80,5 @@ exports.generateLine = generateLine;
 exports.generateFilledLine = generateFilledLine;
 exports.generateHollowLine = generateHollowLine;
 exports.calculateJustifyWidth = calculateJustifyWidth;
+exports.increment = increment;
+exports.createNumberSeries = createNumberSeries;

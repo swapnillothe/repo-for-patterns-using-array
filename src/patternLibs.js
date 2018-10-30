@@ -11,6 +11,7 @@ const generateLine = library.generateLine;
 const generateFilledLine = library.generateFilledLine;
 const generateHollowLine = library.generateHollowLine;
 const calculateJustifyWidth = library.calculateJustifyWidth;
+const createNumberSeries = library.createNumberSeries;
 
 const createRightTriangle = function(height){
   let createdTriangle = "";
@@ -25,25 +26,14 @@ const createRightTriangle = function(height){
 }
 
 const createLeftTriangle = function(height){
-  let createdTriangle = "";
-  let delimeter = "";
-
-  for(let index = 1; index <= height; index++){
-    createdTriangle = createdTriangle + delimeter + repeatStar(index);
-    delimeter = "\n";
-  }
-  return createdTriangle;
+  createdTriangle = createNumberSeries(height)
+  return createdTriangle.map(repeatStar).join("\n");
 }
 
 const createFilledRectangle = function(width,height){
-  let rectangle = "";
-  let delimeter = "";
-
-  for(let index = 0; index < height; index++){
-    rectangle = rectangle + delimeter + generateFilledLine(width);
-    delimeter = "\n";
-  }
-  return rectangle;
+  rectangle = new Array(height).fill(width);
+  rectangle = rectangle.map(repeatStar);
+  return rectangle.join("\n");
 }
 
 const createAlternateRectangle = function(width,height){
@@ -89,7 +79,7 @@ const createFilledDiamond = function(sizeOfDiamond){
   return diamond;
 }
 
-const generateHollow = function(sizeOfDiamond){
+const createHollowDiamond = function(sizeOfDiamond){
   let diamond = "";
   let delimeter = "";
   let justifyWidth = calculateJustifyWidth(sizeOfDiamond);
@@ -104,7 +94,7 @@ const generateHollow = function(sizeOfDiamond){
   return diamond;
 }
 
-const generateAngled = function(sizeOfDiamond){
+const createAngledDiamond = function(sizeOfDiamond){
   let diamond = "";
   let delimeter = "\n";
   let justifyWidth = calculateJustifyWidth(sizeOfDiamond);
@@ -145,19 +135,26 @@ Rectangle.alternating = createAlternateRectangle;
 
 const Diamond = {};
 Diamond.filled = createFilledDiamond;
-Diamond.hollow = generateHollow;
-Diamond.angled = generateAngled;
+Diamond.hollow = createHollowDiamond;
+Diamond.angled = createAngledDiamond;
 
-const createTriangle = function(typeOfTriangle, height){
-  return Triangle[typeOfTriangle](height);
+const createTriangle = function(specification){
+  type = specification.type;
+  height = specification.height;
+  return Triangle[type](height);
 }
 
-const createRectangle = function(typeOfRectangle,width,height){
-  return Rectangle[typeOfRectangle](width,height);
+const createRectangle = function(specification){
+  type = specification.type;
+  height = specification.height;
+  width = specification.width;
+  return Rectangle[type](width,height);
 }
 
-const createDiamond = function(typeOfDiamond,sizeOfDiamond){
-  return Diamond[typeOfDiamond](sizeOfDiamond);
+const createDiamond = function(specification){
+  type = specification.type;
+  size = specification.size;
+  return Diamond[type](size);
 }
 
 exports.createTriangle = createTriangle;

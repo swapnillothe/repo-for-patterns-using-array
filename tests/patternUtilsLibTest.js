@@ -11,6 +11,8 @@ const generateLine = library.generateLine;
 const generateFilledLine = library.generateFilledLine;
 const generateHollowLine = library.generateHollowLine;
 const calculateJustifyWidth = library.calculateJustifyWidth;
+const increment = library.increment; 
+const createNumberSeries = library.createNumberSeries;
 
 // Assertion test for repeatCharacter with three stars//
 let actual_output_3_stars = repeatCharacter("*",3);
@@ -108,3 +110,11 @@ assert.deepEqual(justifyWidth(),1);
 assert.deepEqual(justifyWidth(),0);
 assert.deepEqual(justifyWidth(),1);
 assert.deepEqual(justifyWidth(),2);
+
+// Assertion test for createNumberSeries function //
+assert.deepEqual(createNumberSeries(3),[1,2,3]);
+assert.deepEqual(createNumberSeries(2),[1,2]);
+assert.deepEqual(createNumberSeries(4),[1,2,3,4]);
+assert.deepEqual(createNumberSeries(5),[1,2,3,4,5]);
+assert.deepEqual(createNumberSeries(1),[1]);
+

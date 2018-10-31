@@ -1,11 +1,10 @@
-const lib = require("./src/patternLibs.js");
-const createRectangle = lib.createRectangle;
+const library1 = require("./src/patternLibs.js");
+const library2 = require("./src/patternUtilLib.js");
+const createRectangle = library1.createRectangle;
+const readUserArgs = library2.readUserArgs;
 
 const main = function() {
-  type = process.argv[2];
-  height = +process.argv[3];
-  width = +process.argv[4];
-  console.log(createRectangle({type,width,height}));
+  console.log(createRectangle(readUserArgs(process.argv)));
 }
 
 main();

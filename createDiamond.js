@@ -1,10 +1,10 @@
-const lib = require("./src/patternLibs.js");
-const createDiamond = lib.createDiamond;
+const library1 = require("./src/patternLibs.js");
+const library2 = require("./src/patternUtilLib.js");
+const createDiamond = library1.createDiamond;
+const readUserArgs = library2.readUserArgs;
 
 const main = function(){
-  let type = process.argv[2]; 
-  let height = +process.argv[3];
-  console.log(createDiamond({type,height}));
+  console.log(createDiamond(readUserArgs(process.argv)));
 }
 
 main();

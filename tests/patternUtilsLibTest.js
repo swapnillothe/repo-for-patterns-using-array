@@ -15,6 +15,7 @@ const increment = library.increment;
 const createNumberSeries = library.createNumberSeries;
 const generateUpperPartDiamond = library.generateUpperPartDiamond;
 const generateLowerPartDiamond = library.generateLowerPartDiamond;
+const readUserArgs = library.readUserArgs;
 
 // Assertion test for repeatCharacter with three stars//
 let actual_output_3_stars = repeatCharacter("*",3);
@@ -135,3 +136,12 @@ assert.deepEqual(createNumberSeries(4),[1,2,3,4]);
 assert.deepEqual(createNumberSeries(5),[1,2,3,4,5]);
 assert.deepEqual(createNumberSeries(1),[1]);
 
+// Assertion test for readUserArgs function //
+assert.deepEqual(readUserArgs([,,"filled",20,5]),{ type:"filled", height:20, width:5 })
+assert.deepEqual(readUserArgs([,,"empty",20,5]),{ type:"empty", height:20, width:5 })
+assert.deepEqual(readUserArgs([,,"alternating",20,5]),{ type:"alternating", height:20, width:5 })
+assert.deepEqual(readUserArgs([,,"left",20]),{ type:"left", height:20 })
+assert.deepEqual(readUserArgs([,,"right",20]),{ type:"right", height:20 })
+assert.deepEqual(readUserArgs([,,"filled",20]),{ type:"filled", height:20 })
+assert.deepEqual(readUserArgs([,,"hollow",20]),{ type:"hollow", height:20 })
+assert.deepEqual(readUserArgs([,,"angled",20]),{ type:"angled", height:20 })

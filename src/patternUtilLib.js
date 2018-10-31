@@ -77,6 +77,16 @@ const createNumberSeries = function(limit){
   return series.map(createSeries);
 }
 
+const readUserArgs = function(args){
+  let type = args[2];
+  let height = +args[3];
+  if(args[4]!=undefined){
+    let width = +args[4];
+    return { type, height, width };
+  }
+  return { type, height };
+}
+
 exports.repeatCharacter = repeatCharacter;
 exports.repeatStar = repeatStar;
 exports.repeatSpace = repeatSpace;
@@ -92,3 +102,4 @@ exports.increment = increment;
 exports.createNumberSeries = createNumberSeries;
 exports.generateUpperPartDiamond = generateUpperPartDiamond;
 exports.generateLowerPartDiamond = generateLowerPartDiamond;
+exports.readUserArgs = readUserArgs;

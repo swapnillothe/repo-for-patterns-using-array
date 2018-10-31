@@ -1,9 +1,9 @@
-const lib = require("./src/patternLibs.js");
-const createTriangle = lib.createTriangle;
+const library1 = require("./src/patternLibs.js");
+const library2 = require("./src/patternUtilLib.js")
+const createTriangle = library1.createTriangle;
+const readUserArgs = library2.readUserArgs;
 
 const main = function(){
-  type = process.argv[2];
-  height = +process.argv[3];
-  console.log(createTriangle({type,height}));
+  console.log(createTriangle(readUserArgs(process.argv)));
 }
 main();

@@ -3,8 +3,8 @@ const createRectangle = lib.createRectangle;
 
 const main = function() {
   type = process.argv[2];
-  width = +process.argv[3];
-  height = +process.argv[4];
+  height = +process.argv[3];
+  width = +process.argv[4];
   console.log(createRectangle({type,width,height}));
 }
 

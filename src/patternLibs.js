@@ -120,8 +120,8 @@ const createRectangle = function(specification){
 
 const createDiamond = function(specification){
   type = specification.type;
-  size = specification.size;
-  return diamonds[type](size);
+  height = specification.height;
+  return diamonds[type](height);
 }
 
 exports.createTriangle = createTriangle;

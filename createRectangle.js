@@ -6,7 +6,6 @@ const main = function() {
   width = +process.argv[3];
   height = +process.argv[4];
   console.log(createRectangle({type,width,height}));
-  return;
 }
 
 main();

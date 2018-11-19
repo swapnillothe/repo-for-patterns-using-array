@@ -77,6 +77,15 @@ const createNumberSeries = function(limit){
   return series.map(createSeries);
 }
 
+const zipDataSets = function(dataSet1,dataSet2){
+  zipLength = Math.min(dataSet1.length,dataSet2.length);
+  let zippedDataSet = new Array(zipLength);
+  for(let index=0; index<zipLength; index++){
+    zippedDataSet[index] = dataSet1[index] + " " + dataSet2[index];    
+  }
+  return zippedDataSet;
+}
+
 const readUserArgs = function(args){
   let type = args[2];
   let height = +args[3];
@@ -103,3 +112,4 @@ exports.createNumberSeries = createNumberSeries;
 exports.generateUpperPartDiamond = generateUpperPartDiamond;
 exports.generateLowerPartDiamond = generateLowerPartDiamond;
 exports.readUserArgs = readUserArgs;
+exports.zipDataSets = zipDataSets;

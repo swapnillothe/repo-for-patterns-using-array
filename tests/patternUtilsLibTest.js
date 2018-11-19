@@ -16,6 +16,7 @@ const createNumberSeries = library.createNumberSeries;
 const generateUpperPartDiamond = library.generateUpperPartDiamond;
 const generateLowerPartDiamond = library.generateLowerPartDiamond;
 const readUserArgs = library.readUserArgs;
+const zipDataSets = library.zipDataSets;
 
 // Assertion test for repeatCharacter with three stars//
 let actual_output_3_stars = repeatCharacter("*",3);
@@ -145,3 +146,11 @@ assert.deepEqual(readUserArgs([,,"right",20]),{ type:"right", height:20 })
 assert.deepEqual(readUserArgs([,,"filled",20]),{ type:"filled", height:20 })
 assert.deepEqual(readUserArgs([,,"hollow",20]),{ type:"hollow", height:20 })
 assert.deepEqual(readUserArgs([,,"angled",20]),{ type:"angled", height:20 })
+
+// Assertion test for zipDataSets function //
+assert.deepEqual(zipDataSets(["a"],["z"]),["a z"]);
+assert.deepEqual(zipDataSets(["a", "b"],["z"]),["a z"]);
+assert.deepEqual(zipDataSets(["a"],["z","x"]),["a z"]);
+assert.deepEqual(zipDataSets(["***"],["@"]),["*** @"]);
+assert.deepEqual(zipDataSets(["$$","##"],["z","!"]),["$$ z","## !"]);
+assert.deepEqual(zipDataSets([1, 2],["z", "s" ]),["1 z", "2 s"]);

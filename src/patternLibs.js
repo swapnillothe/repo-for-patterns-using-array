@@ -73,27 +73,27 @@ const getDiamondShape = function(sizeOfDiamond){
   }
 }
 
-const createFilledDiamond = function(sizeOfDiamond){
-  let diamond = new Array(sizeOfDiamond).fill(generateFilledLine);
-  let fillDiamond = getDiamondShape(sizeOfDiamond);
-  return diamond.map(fillDiamond).join("\n");
-}
-
-const createHollowDiamond = function(sizeOfDiamond){
-  let diamond = new Array(sizeOfDiamond).fill(generateHollowLine);
-  let fillDiamond = getDiamondShape(sizeOfDiamond);
-  return diamond.map(fillDiamond).join("\n");
-}
-
-const createAngledDiamond = function(size){
+const generateDiamond = function(size,tipGenerator,upperPartGenerator,lowerPartGenerator){
   let midLayer = Math.floor(size/2);
 
-  let diamond = new Array(size).fill(generateUpperPartDiamond);
-  diamond[0] = diamond[size-1] = diamond[midLayer] = generateHollowLine;
-    diamond.fill(generateLowerPartDiamond,midLayer+1,size-1);
+  let diamond = new Array(size).fill(upperPartGenerator);
+  diamond[0] = diamond[size-1] = diamond[midLayer] = tipGenerator;
+  diamond.fill(lowerPartGenerator,midLayer+1,size-1);
 
   let fillDiamond = getDiamondShape(size);
   return diamond.map(fillDiamond).join("\n");
+}
+
+const createFilledDiamond = function(size){
+  return generateDiamond(size, generateFilledLine, generateFilledLine, generateFilledLine);
+}
+
+const createHollowDiamond = function(size){
+  return generateDiamond(size, generateHollowLine, generateHollowLine, generateHollowLine);
+}
+
+const createAngledDiamond = function(size){
+  return generateDiamond(size, generateHollowLine, generateUpperPartDiamond, generateLowerPartDiamond);
 }
 
 const triangle = {

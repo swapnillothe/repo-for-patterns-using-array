@@ -87,13 +87,15 @@ const zipDataSets = function(dataSet1,dataSet2){
 }
 
 const readUserArgs = function(args){
+  if(isNaN(args[4])){
+    func1 = args.splice(0,4);
+    func1.push("");
+    args = func1.concat(args);
+  }
   let type = args[2];
   let height = +args[3];
-  if(args[4]!=undefined){
-    let width = +args[4];
-    return { type, height, width };
-  }
-  return { type, height };
+  let width = +args[4];
+  return { type, height, width };
 }
 
 exports.repeatCharacter = repeatCharacter;

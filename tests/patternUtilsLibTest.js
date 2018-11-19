@@ -141,11 +141,11 @@ assert.deepEqual(createNumberSeries(1),[1]);
 assert.deepEqual(readUserArgs([,,"filled",20,5]),{ type:"filled", height:20, width:5 })
 assert.deepEqual(readUserArgs([,,"empty",20,5]),{ type:"empty", height:20, width:5 })
 assert.deepEqual(readUserArgs([,,"alternating",20,5]),{ type:"alternating", height:20, width:5 })
-assert.deepEqual(readUserArgs([,,"left",20]),{ type:"left", height:20 })
-assert.deepEqual(readUserArgs([,,"right",20]),{ type:"right", height:20 })
-assert.deepEqual(readUserArgs([,,"filled",20]),{ type:"filled", height:20 })
-assert.deepEqual(readUserArgs([,,"hollow",20]),{ type:"hollow", height:20 })
-assert.deepEqual(readUserArgs([,,"angled",20]),{ type:"angled", height:20 })
+assert.deepEqual(readUserArgs([,,"left",20]),{ type:"left", height:20, width:0 })
+assert.deepEqual(readUserArgs([,,"right",20]),{ type:"right", height:20, width:0 })
+assert.deepEqual(readUserArgs([,,"filled",20]),{ type:"filled", height:20, width:0 })
+assert.deepEqual(readUserArgs([,,"hollow",20]),{ type:"hollow", height:20, width:0 })
+assert.deepEqual(readUserArgs([,,"angled",20]),{ type:"angled", height:20, width:0 })
 
 // Assertion test for zipDataSets function //
 assert.deepEqual(zipDataSets(["a"],["z"]),["a z"]);

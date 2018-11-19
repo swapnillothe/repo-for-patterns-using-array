@@ -31,6 +31,7 @@ const createLeftTriangle = function(height){
   createdTriangle = createNumberSeries(height)
   return createdTriangle.map(repeatStar).join("\n");
 }
+
 const createFilledRectangle = function(width,height){
   let createRectangle = getRectangleShape(width);
   let rectangle = new Array(height).fill(generateFilledLine);
@@ -88,9 +89,8 @@ const createAngledDiamond = function(size){
   let midLayer = Math.floor(size/2);
 
   let diamond = new Array(size).fill(generateUpperPartDiamond);
-  diamond[0] = diamond[size-1] = generateFilledLine;
-  diamond[midLayer] = generateHollowLine;
-  diamond.fill(generateLowerPartDiamond,midLayer+1,size-1);
+  diamond[0] = diamond[size-1] = diamond[midLayer] = generateHollowLine;
+    diamond.fill(generateLowerPartDiamond,midLayer+1,size-1);
 
   let fillDiamond = getDiamondShape(size);
   return diamond.map(fillDiamond).join("\n");

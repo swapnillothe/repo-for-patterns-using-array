@@ -95,19 +95,22 @@ const createAngledDiamond = function(size){
   return diamond.map(fillDiamond).join("\n");
 }
 
-const triangle = {};
-triangle.left = createLeftTriangle;
-triangle.right = createRightTriangle;
+const triangle = {
+"left" : createLeftTriangle,
+"right" : createRightTriangle
+}
 
-const rectangles = {};
-rectangles.filled = createFilledRectangle;
-rectangles.empty = createEmptyRectangle;
-rectangles.alternating = createAlternateRectangle;
+const rectangles = {
+"filled" : createFilledRectangle,
+"empty" : createEmptyRectangle,
+"alternating" : createAlternateRectangle
+}
 
-const diamonds = {};
-diamonds.filled = createFilledDiamond;
-diamonds.hollow = createHollowDiamond;
-diamonds.angled = createAngledDiamond;
+const diamonds = {
+"filled" : createFilledDiamond,
+"hollow" : createHollowDiamond,
+"angled" : createAngledDiamond
+}
 
 const createTriangle = function(specification){
   type = specification.type;

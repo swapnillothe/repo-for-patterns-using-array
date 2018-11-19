@@ -96,7 +96,7 @@ const createAngledDiamond = function(size){
   return generateDiamond(size, generateHollowLine, generateUpperPartDiamond, generateLowerPartDiamond);
 }
 
-const triangle = {
+const triangles = {
 "left" : createLeftTriangle,
 "right" : createRightTriangle
 }
@@ -116,20 +116,23 @@ const diamonds = {
 const createTriangle = function(specification){
   type = specification.type;
   height = specification.height;
-  return triangle[type](height);
+  getTriangle = triangles[type];
+  return getTriangle(height);
 }
 
 const createRectangle = function(specification){
   type = specification.type;
   height = specification.height;
   width = specification.width;
-  return rectangles[type](width,height);
+  getRectangle = rectangles[type];
+  return getRectangle(width,height);
 }
 
 const createDiamond = function(specification){
   type = specification.type;
   height = specification.height;
-  return diamonds[type](height);
+  getDiamond = diamonds[type];
+  return getDiamond(height);
 }
 
 exports.createTriangle = createTriangle;

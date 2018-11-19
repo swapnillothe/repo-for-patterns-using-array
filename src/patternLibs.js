@@ -31,9 +31,10 @@ const createLeftTriangle = function(height){
   createdTriangle = createNumberSeries(height)
   return createdTriangle.map(repeatStar).join("\n");
 }
-
 const createFilledRectangle = function(width,height){
-  rectangle = new Array(height).fill(repeatStar(width));
+  let createRectangle = getRectangleShape(width);
+  let rectangle = new Array(height).fill(generateFilledLine);
+  rectangle = rectangle.map(createRectangle);
   return rectangle.join("\n");
 }
 

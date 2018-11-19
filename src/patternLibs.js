@@ -43,22 +43,26 @@ const selectPattern = function(width,layerIndex){
 }
 
 const createAlternateRectangle = function(width,height){
-  rectangle = new Array(height).fill(width);
+  let rectangle = new Array(height).fill(width);
   rectangle = rectangle.map(selectPattern);
   return rectangle.join("\n");
 }
 
-const createEmptyRectangle = function(width,height){
-  let delimeter = "\n";
-  let rectangle = repeatStar(width) + delimeter;
-  for(let index = 2; index < height; index++ ){
-    rectangle = rectangle + generateHollowLine(width) + delimeter;
+const getRectangleShape = function(width){
+  return function(layerGenerator){
+    return layerGenerator(width);
   }
-  rectangle = rectangle + repeatStar(width);
-  return rectangle;
 }
 
-const getShape = function(sizeOfDiamond){
+const createEmptyRectangle = function(width,height){
+  let createRectangle = getRectangleShape(width);
+  let rectangle = new Array(height).fill(generateHollowLine);
+  rectangle[0] = rectangle[height-1] = generateFilledLine;
+  rectangle = rectangle.map(createRectangle);
+  return rectangle.join("\n");
+}
+
+const getDiamondShape = function(sizeOfDiamond){
   let justifyWidth = calculateJustifyWidth(sizeOfDiamond);
   return function(layerGenerator){
     let spaces = justifyWidth(layerGenerator);
@@ -69,13 +73,13 @@ const getShape = function(sizeOfDiamond){
 
 const createFilledDiamond = function(sizeOfDiamond){
   let diamond = new Array(sizeOfDiamond).fill(generateFilledLine);
-  let fillDiamond = getShape(sizeOfDiamond);
+  let fillDiamond = getDiamondShape(sizeOfDiamond);
   return diamond.map(fillDiamond).join("\n");
 }
 
 const createHollowDiamond = function(sizeOfDiamond){
   let diamond = new Array(sizeOfDiamond).fill(generateHollowLine);
-  let fillDiamond = getShape(sizeOfDiamond);
+  let fillDiamond = getDiamondShape(sizeOfDiamond);
   return diamond.map(fillDiamond).join("\n");
 }
 
@@ -87,7 +91,7 @@ const createAngledDiamond = function(size){
   diamond[midLayer] = generateHollowLine;
   diamond.fill(generateLowerPartDiamond,midLayer+1,size-1);
 
-  let fillDiamond = getShape(size);
+  let fillDiamond = getDiamondShape(size);
   return diamond.map(fillDiamond).join("\n");
 }
 

@@ -148,9 +148,9 @@ assert.deepEqual(readUserArgs([,,"hollow",20]),{ type:"hollow", height:20, width
 assert.deepEqual(readUserArgs([,,"angled",20]),{ type:"angled", height:20, width:0 })
 
 // Assertion test for zipDataSets function //
-assert.deepEqual(zipDataSets(["a"],["z"]),["a z"]);
-assert.deepEqual(zipDataSets(["a", "b"],["z"]),["a z"]);
-assert.deepEqual(zipDataSets(["a"],["z","x"]),["a z"]);
-assert.deepEqual(zipDataSets(["***"],["@"]),["*** @"]);
-assert.deepEqual(zipDataSets(["$$","##"],["z","!"]),["$$ z","## !"]);
-assert.deepEqual(zipDataSets([1, 2],["z", "s" ]),["1 z", "2 s"]);
+assert.deepEqual(zipDataSets(["a"],["z"]," "),["a z"]);
+assert.deepEqual(zipDataSets(["a", "b"],["z"]," "),["a z"]);
+assert.deepEqual(zipDataSets(["a"],["z","x"],"_"),["a_z"]);
+assert.deepEqual(zipDataSets(["***"],["@"],"_"),["***_@"]);
+assert.deepEqual(zipDataSets(["$$","##"],["z","!"],"+"),["$$+z","##+!"]);
+assert.deepEqual(zipDataSets([1, 2],["z", "s" ]," "),["1 z", "2 s"]);

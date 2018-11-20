@@ -81,7 +81,8 @@ const zipDataSets = function(dataSet1,dataSet2,separator){
   zipLength = Math.min(dataSet1.length,dataSet2.length);
   let zippedDataSet = new Array(zipLength);
   for(let index=0; index<zipLength; index++){
-    zippedDataSet[index] = dataSet1[index] + repeatCharacter(separator) + dataSet2[index];    
+    zippedDataSet[index] = dataSet1[index] + 
+      repeatCharacter(separator) + dataSet2[index];    
   }
   return zippedDataSet;
 }

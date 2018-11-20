@@ -14,17 +14,14 @@ const calculateJustifyWidth = library.calculateJustifyWidth;
 const createNumberSeries = library.createNumberSeries;
 const generateUpperPartDiamond = library.generateUpperPartDiamond;
 const generateLowerPartDiamond = library.generateLowerPartDiamond;
+const zipDataSets = library.zipDataSets;
 
 const createRightTriangle = function(height){
-  let createdTriangle = "";
-  let delimeter = "";
-
-  for(let index = 1; index <= height; index++){
-    let justifiedLayer = justifyText(repeatStar(index),(height-index));
-    createdTriangle = createdTriangle + delimeter + justifiedLayer;
-    delimeter = "\n";
-  }
-  return createdTriangle;
+  createdTriangle = createNumberSeries(height).map(repeatStar);
+  justifier = createNumberSeries(height).map(x=>x-1);
+  justifier = justifier.reverse().map(repeatSpace)
+  createdTriangle = zipDataSets(justifier, createdTriangle, "");
+  return createdTriangle.join("\n");
 }
 
 const createLeftTriangle = function(height){

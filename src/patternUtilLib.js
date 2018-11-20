@@ -22,8 +22,8 @@ const repeatDash = function(width){
 }
 
 const createStarredEnd = function(widthForStar){
-  if(widthForStar == 1){
-    return "*";
+  if(widthForStar < 2){
+    return repeatStar(widthForStar);
   }
   return "*" + repeatSpace(widthForStar-2) + "*";
 } 
@@ -87,6 +87,7 @@ const zipDataSets = function(dataSet1,dataSet2){
 }
 
 const readUserArgs = function(args){
+  argsOfFunc1 = args.slice()
   if(isNaN(args[4])){
     func1 = args.splice(0,4);
     func1.push("");

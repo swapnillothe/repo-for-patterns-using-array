@@ -7,30 +7,30 @@ const Diamond = library.createDiamond;
 // Tests for left traingle with height 3 //
 let actualOutput_left_3 = Triangle({ type:"left",height:3});
 let expectedOutput_left_3 = "";
-expectedOutput_left_3 += "*\n"; 
-expectedOutput_left_3 += "**\n";
+expectedOutput_left_3 += "*  \n"; 
+expectedOutput_left_3 += "** \n";
 expectedOutput_left_3 += "***";
 assert.deepStrictEqual(actualOutput_left_3,expectedOutput_left_3);
 
 //Tests for left triangle with height 5 //
 let actualOutput_left_5 = Triangle({ type:"left",height:5});
 let expectedOutput_left_5 = "";
-expectedOutput_left_5 += "*\n"; 
-expectedOutput_left_5 += "**\n";
-expectedOutput_left_5 += "***\n";
-expectedOutput_left_5 += "****\n";
+expectedOutput_left_5 += "*    \n"; 
+expectedOutput_left_5 += "**   \n";
+expectedOutput_left_5 += "***  \n";
+expectedOutput_left_5 += "**** \n";
 expectedOutput_left_5 += "*****";
 assert.deepStrictEqual(actualOutput_left_5,expectedOutput_left_5)
 
 //Tests for left triangle with height 7 //
 let actualOutput_left_7 = Triangle({ type:"left", height:7 });
 let expectedOutput_left_7 = "";
-expectedOutput_left_7 += "*\n"; 
-expectedOutput_left_7 += "**\n";
-expectedOutput_left_7 += "***\n";
-expectedOutput_left_7 += "****\n";
-expectedOutput_left_7 += "*****\n";
-expectedOutput_left_7 += "******\n";
+expectedOutput_left_7 += "*      \n"; 
+expectedOutput_left_7 += "**     \n";
+expectedOutput_left_7 += "***    \n";
+expectedOutput_left_7 += "****   \n";
+expectedOutput_left_7 += "*****  \n";
+expectedOutput_left_7 += "****** \n";
 expectedOutput_left_7 += "*******";
 assert.deepStrictEqual(actualOutput_left_7,expectedOutput_left_7);
 

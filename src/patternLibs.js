@@ -19,16 +19,17 @@ const {
 } = library;
 
 const createRightTriangle = function(height){
-  createdTriangle = createNumberSeries(height).map(repeatStar);
-  justifier = createNumberSeries(height).map(x=>x-1);
+  let createdTriangle = createNumberSeries(height).map(repeatStar);
+  let justifier = createNumberSeries(height).map(x=>x-1);
   justifier = justifier.reverse().map(repeatSpace)
   createdTriangle = zipDataSets(justifier, createdTriangle, "");
   return createdTriangle;
 }
 
 const createLeftTriangle = function(height){
-  createdTriangle = createNumberSeries(height)
-  return createdTriangle.map(repeatStar);
+  let createdTriangle = createRightTriangle(height);
+  createdTriangle = createdTriangle.map(x=>x.split("").reverse().join(""));
+  return createdTriangle;
 }
 
 const createFilledRectangle = function(width,height){

@@ -1,39 +1,41 @@
 const library = require("../src/patternUtilLib.js");
 const assert = require("assert");
-const repeatCharacter = library.repeatCharacter;
-const repeatStar = library.repeatStar;
-const repeatSpace = library.repeatSpace;
-const justifyText = library.justifyText;
-const repeatDash = library.repeatDash;
-const createStarredEnd = library.createStarredEnd;
-const getOddNumber = library.getOddNumber;
-const generateLine = library.generateLine;
-const generateFilledLine = library.generateFilledLine;
-const generateHollowLine = library.generateHollowLine;
-const calculateJustifyWidth = library.calculateJustifyWidth;
-const createNumberSeries = library.createNumberSeries;
-const generateUpperPartDiamond = library.generateUpperPartDiamond;
-const generateLowerPartDiamond = library.generateLowerPartDiamond;
-const zipDataSets = library.zipDataSets;
+const {
+  repeatCharacter,
+  repeatStar,
+  repeatSpace,
+  justifyText,
+  repeatDash,
+  createStarredEnd,
+  getOddNumber,
+  generateLine,
+  generateFilledLine,
+  generateHollowLine,
+  calculateJustifyWidth,
+  createNumberSeries,
+  generateUpperPartDiamond,
+  generateLowerPartDiamond,
+  zipDataSets
+} = library;
 
 const createRightTriangle = function(height){
   createdTriangle = createNumberSeries(height).map(repeatStar);
   justifier = createNumberSeries(height).map(x=>x-1);
   justifier = justifier.reverse().map(repeatSpace)
   createdTriangle = zipDataSets(justifier, createdTriangle, "");
-  return createdTriangle.join("\n");
+  return createdTriangle;
 }
 
 const createLeftTriangle = function(height){
   createdTriangle = createNumberSeries(height)
-  return createdTriangle.map(repeatStar).join("\n");
+  return createdTriangle.map(repeatStar);
 }
 
 const createFilledRectangle = function(width,height){
   let createRectangle = getRectangleShape(width);
   let rectangle = new Array(height).fill(generateFilledLine);
   rectangle = rectangle.map(createRectangle);
-  return rectangle.join("\n");
+  return rectangle;
 }
 
 const selectPattern = function(width,layerIndex){
@@ -44,7 +46,7 @@ const selectPattern = function(width,layerIndex){
 const createAlternateRectangle = function(width,height){
   let rectangle = new Array(height).fill(width);
   rectangle = rectangle.map(selectPattern);
-  return rectangle.join("\n");
+  return rectangle;
 }
 
 const getRectangleShape = function(width){
@@ -58,7 +60,7 @@ const createEmptyRectangle = function(width,height){
   let rectangle = new Array(height).fill(generateHollowLine);
   rectangle[0] = rectangle[height-1] = generateFilledLine;
   rectangle = rectangle.map(createRectangle);
-  return rectangle.join("\n");
+  return rectangle;
 }
 
 const getDiamondShape = function(sizeOfDiamond){
@@ -78,7 +80,7 @@ const generateDiamond = function(size,tipGenerator,upperPartGenerator,lowerPartG
   diamond.fill(lowerPartGenerator,midLayer+1,size-1);
 
   let fillDiamond = getDiamondShape(size);
-  return diamond.map(fillDiamond).join("\n");
+  return diamond.map(fillDiamond);
 }
 
 const createFilledDiamond = function(size){
@@ -114,7 +116,7 @@ const createTriangle = function(specification){
   type = specification.type;
   height = specification.height;
   getTriangle = triangles[type];
-  return getTriangle(height);
+  return getTriangle(height).join("\n");
 }
 
 const createRectangle = function(specification){
@@ -122,14 +124,14 @@ const createRectangle = function(specification){
   height = specification.height;
   width = specification.width;
   getRectangle = rectangles[type];
-  return getRectangle(width,height);
+  return getRectangle(width,height).join("\n");
 }
 
 const createDiamond = function(specification){
   type = specification.type;
   height = specification.height;
   getDiamond = diamonds[type];
-  return getDiamond(height);
+  return getDiamond(height).join("\n");
 }
 
 exports.createTriangle = createTriangle;

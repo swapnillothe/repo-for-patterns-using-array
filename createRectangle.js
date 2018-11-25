@@ -4,7 +4,7 @@ const createRectangle = library1.createRectangle;
 const readUserArgs = library2.readUserArgs;
 
 const main = function() {
-  console.log( createRectangle(readUserArgs(process.argv)));
+  console.log(createRectangle(readUserArgs(process.argv)));
 }
 
 main();

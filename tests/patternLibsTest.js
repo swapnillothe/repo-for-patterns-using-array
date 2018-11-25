@@ -164,65 +164,65 @@ assert.deepStrictEqual(actualOutput_alternate_20_5,expectedOutput_alternate_20_5
 //Tests for filled Diamond with width 5 //
 let actualOutput_filled_5 = Diamond({ type:"filled", height:5 });
 let expectedOutput_filled_5 = "";
-expectedOutput_filled_5 += "  *\n"; 
-expectedOutput_filled_5 += " ***\n"; 
+expectedOutput_filled_5 += "  *  \n"; 
+expectedOutput_filled_5 += " *** \n"; 
 expectedOutput_filled_5 += "*****\n"; 
-expectedOutput_filled_5 += " ***\n"; 
-expectedOutput_filled_5 += "  *"; 
+expectedOutput_filled_5 += " *** \n"; 
+expectedOutput_filled_5 += "  *  "; 
 assert.deepStrictEqual(actualOutput_filled_5,expectedOutput_filled_5);
 
 //Tests for filled Diamond with height 7 //
 let actualOutput_filled_7 = Diamond({ type:"filled", height:7 });
 let expectedOutput_filled_7 = "";
-expectedOutput_filled_7 += "   *\n"; 
-expectedOutput_filled_7 += "  ***\n"; 
-expectedOutput_filled_7 += " *****\n"; 
+expectedOutput_filled_7 += "   *   \n"; 
+expectedOutput_filled_7 += "  ***  \n"; 
+expectedOutput_filled_7 += " ***** \n"; 
 expectedOutput_filled_7 += "*******\n"; 
-expectedOutput_filled_7 += " *****\n"; 
-expectedOutput_filled_7 += "  ***\n"; 
-expectedOutput_filled_7 += "   *"; 
+expectedOutput_filled_7 += " ***** \n"; 
+expectedOutput_filled_7 += "  ***  \n"; 
+expectedOutput_filled_7 += "   *   "; 
 assert.deepStrictEqual(actualOutput_filled_7,expectedOutput_filled_7);
 
 //Tests for empty Diamond with height 5 //
 let actualOutput_empty_5 = Diamond({ type:"hollow", height:5 });
 let expectedOutput_empty_5 = "";
-expectedOutput_empty_5 += "  *\n"; 
-expectedOutput_empty_5 += " * *\n"; 
+expectedOutput_empty_5 += "  *  \n"; 
+expectedOutput_empty_5 += " * * \n"; 
 expectedOutput_empty_5 += "*   *\n"; 
-expectedOutput_empty_5 += " * *\n"; 
-expectedOutput_empty_5 += "  *"; 
+expectedOutput_empty_5 += " * * \n"; 
+expectedOutput_empty_5 += "  *  "; 
 assert.deepStrictEqual(actualOutput_empty_5,expectedOutput_empty_5);
 
 //Tests for empty Diamond with height 7 //
 let actualOutput_empty_7 = Diamond({ type:"hollow", height:7 });
 let expectedOutput_empty_7 = "";
-expectedOutput_empty_7 += "   *\n"; 
-expectedOutput_empty_7 += "  * *\n"; 
-expectedOutput_empty_7 += " *   *\n"; 
+expectedOutput_empty_7 += "   *   \n"; 
+expectedOutput_empty_7 += "  * *  \n"; 
+expectedOutput_empty_7 += " *   * \n"; 
 expectedOutput_empty_7 += "*     *\n"; 
-expectedOutput_empty_7 += " *   *\n"; 
-expectedOutput_empty_7 += "  * *\n"; 
-expectedOutput_empty_7 += "   *"; 
+expectedOutput_empty_7 += " *   * \n"; 
+expectedOutput_empty_7 += "  * *  \n"; 
+expectedOutput_empty_7 += "   *   "; 
 assert.deepStrictEqual(actualOutput_empty_7,expectedOutput_empty_7);
 
 //Tests for angled Diamond with height 5 //
 let actualOutput_angled_5 = Diamond({ type:"angled", height:5 });
 let expectedOutput_angled_5 = "";
-expectedOutput_angled_5 += "  *\n"; 
-expectedOutput_angled_5 += " / \\\n"; 
+expectedOutput_angled_5 += "  *  \n"; 
+expectedOutput_angled_5 += " / \\ \n"; 
 expectedOutput_angled_5 += "*   *\n"; 
-expectedOutput_angled_5 += " \\ /\n"; 
-expectedOutput_angled_5 += "  *"; 
+expectedOutput_angled_5 += " \\ / \n"; 
+expectedOutput_angled_5 += "  *  "; 
 assert.deepStrictEqual(actualOutput_angled_5,expectedOutput_angled_5)
 
 //Tests for angled Diamond with height 7 //
 let actualOutput_angled_7 = Diamond({ type:"angled", height:7 });
 let expectedOutput_angled_7 ="";
-expectedOutput_angled_7 += "   *\n"
-expectedOutput_angled_7 += "  / \\\n"
-expectedOutput_angled_7 += " /   \\\n"
+expectedOutput_angled_7 += "   *   \n"
+expectedOutput_angled_7 += "  / \\  \n"
+expectedOutput_angled_7 += " /   \\ \n"
 expectedOutput_angled_7 += "*     *\n"
-expectedOutput_angled_7 += " \\   /\n"
-expectedOutput_angled_7 += "  \\ /\n"
-expectedOutput_angled_7 += "   *"
+expectedOutput_angled_7 += " \\   / \n"
+expectedOutput_angled_7 += "  \\ /  \n"
+expectedOutput_angled_7 += "   *   "
 assert.deepStrictEqual(actualOutput_angled_7,expectedOutput_angled_7);

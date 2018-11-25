@@ -69,7 +69,7 @@ const getDiamondShape = function(sizeOfDiamond){
   return function(layerGenerator){
     let spaces = justifyWidth(layerGenerator);
     layer = layerGenerator(sizeOfDiamond-(2*spaces));
-    return repeatSpace(spaces)+layer;
+    return repeatSpace(spaces)+layer+repeatSpace(spaces);
   }
 }
 
